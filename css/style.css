@@ -575,12 +575,124 @@ footer {
 }
 
 /* --- 반응형 레이아웃 --- */
+/* ==========================================
+   🎨 2일차 미션: 모바일 친화 기능 강화 (Responsive)
+   ========================================== */
+
 @media (max-width: 768px) {
-    .hero { padding: 100px 0; }
-    .hero h1 { font-size: 2.4rem; }
-    .grid-layout { grid-template-columns: 1fr; gap: 16px; }
-    .console-body { padding: 24px; }
-    .cta-box h2 { font-size: 1.8rem; }
+    /* 1. 컨테이너 패딩 완화 및 레이아웃 조정 */
+    .container {
+        padding: 0 20px;
+    }
+    
+    /* 2. 히어로 영역 폰트 크기 유연화 및 레이아웃 최적화 */
+    .hero { 
+        padding: 80px 0 60px 0; 
+        min-height: auto; /* 모바일에서는 화면 높이에 맞추기보다 콘텐츠에 맞게 조절 */
+    }
+    .hero h1 { 
+        font-size: 2.0rem; /* 3.5rem에서 모바일용으로 축소 */
+        line-height: 1.3;
+    }
+    .hero p.lead {
+        font-size: 1.05rem;
+        margin-bottom: 30px;
+        word-break: keep-all; /* 단어 단위 줄바꿈으로 깔끔하게 */
+    }
+    
+    /* 3. 모바일 터치 환경에서 마우스 안내선 숨김 처리 */
+    .scroll-indicator {
+        display: none !important;
+    }
+
+    /* 4. 기술 배지 간격 최적화 */
+    .stack-badges {
+        margin-bottom: 40px;
+        gap: 8px;
+    }
+    .badge {
+        font-size: 0.75rem;
+        padding: 5px 10px;
+    }
+
+    /* 5. 프로필 콘솔 탭 메뉴 가로 폭 붕괴 방지 */
+    .console-nav {
+        flex-wrap: wrap; /* 탭이 많아지면 아래로 자연스럽게 흐르도록 */
+    }
+    .console-tab {
+        padding: 12px 8px;
+        font-size: 0.8rem;
+    }
+    .console-body { 
+        padding: 20px; /* 내부 여백 축소하여 가로 공간 확보 */
+    }
+    .console-code-line {
+        font-size: 0.85rem; /* 코드 폰트 살짝 축소하여 터미널 느낌 유지 */
+        overflow-x: auto;   /* 코드가 길어지면 박스를 깨뜨리지 않고 내부 스크롤 제공 */
+    }
+    .extended-text p {
+        font-size: 0.95rem;
+    }
+
+    /* 6. GIF 컨테이너 모바일 마진 조정 */
+    .char-gif-container {
+        padding: 10px;
+        margin: 16px auto;
+    }
+
+    /* 7. 타임라인 박스 여백 수정 */
+    .timeline-container {
+        padding-left: 20px;
+    }
+    .timeline-item::before {
+        left: -24px;
+    }
+    .timeline-content-box {
+        padding: 18px 20px;
+    }
+    .timeline-content-box h3 {
+        font-size: 1.15rem;
+    }
+
+    /* 8. 핵심 엔진 그리드 레이아웃 (1열로 단일화 및 패딩 축소) */
+    .grid-layout { 
+        grid-template-columns: 1fr; 
+        gap: 16px; 
+    }
+    .grid-card {
+        padding: 28px 20px;
+    }
+
+    /* 9. 방명록 터미널 래핑 처리 */
+    .guestbook-body {
+        padding: 20px;
+        font-size: 0.8rem;
+    }
+    .message-item {
+        flex-direction: column; /* 이름과 내용이 모바일에선 위아래로 배치되어 짤림 방지 */
+        gap: 4px;
+        margin-bottom: 12px;
+    }
+    .message-item .user {
+        min-width: auto;
+    }
+
+    /* 10. 하단 CTA 및 버튼 모바일화 */
+    .cta-section {
+        padding: 100px 0;
+    }
+    .cta-box h2 { 
+        font-size: 1.8rem; 
+    }
+    .cta-box p {
+        font-size: 1.0rem;
+        margin-bottom: 32px;
+    }
+    .primary-btn {
+        width: 100%; /* 모바일에서는 엄지손가락으로 누르기 편하게 풀 너비 제공 */
+        padding: 16px 24px;
+        font-size: 0.95rem;
+    }
 }
 
 /* --- [신설] 사막 언덕 및 캔버스 파티클 레이어 스타일 --- */
