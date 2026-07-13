@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | INFJ Back-End Developer 김강민</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;700;800&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <canvas id="ambient-particles"></canvas>
+
+    <header>
+        <div class="container header-inner">
+            <div class="header-logo-zone">
+                <span class="status-dot"></span>
+                <span>STATUS: <span class="accent-text">ONLINE</span></span>
+            </div>
+            <nav class="main-nav mono">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="profile.html" class="nav-link active">Profile</a>
+                <a href="gamification.html" class="nav-link">Quest</a>
+            </nav>
+            <div class="mono env-text" style="font-size: 0.8rem;">
+                ENV: SSAFY_16th_SEOUL_11th
+            </div>
+        </div>
+    </header>
+
+    <section class="console-section container" style="margin-top: 60px;">
+        <span class="section-label">INTERACTIVE TERMINAL</span>
+        <h2 class="section-headline">김강민 내부 시스템 분석</h2>
+        
+        <div class="console-box">
+            <div class="console-header">
+                <div class="console-dots"><div class="console-dot" style="background-color: #ff5f56;"></div><div class="console-dot" style="background-color: #ffbd2e;"></div><div class="console-dot" style="background-color: #27c93f;"></div></div>
+                <div class="console-title">PROFILE.json</div>
+                <div class="console-dots" style="opacity: 0;"><div class="console-dot"></div></div>
+            </div>
+            <div class="console-nav">
+                <div class="console-tab active" onclick="switchTab('whoami')">whoami</div>
+                <div class="console-tab" onclick="switchTab('mbti')">mbti_details</div>
+                <div class="console-tab" onclick="switchTab('hobbies')">interests</div>
+            </div>
+            <div class="console-body">
+                <!-- whoami -->
+                <div id="tab-whoami" class="console-content active">
+                    <div class="console-code-line"><span class="line-num">01</span><span class="line-text"><span class="accent-text">const</span> dev = { name: <span style="color: #e6c07b;">"김강민"</span>, character: <span style="color: #e6c07b;">"외유내강"</span> };</span></div>
+                    <div class="char-gif-container"><img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExYnlqOGJiNTB3bGlqcXIzMHAyNmZ1djJxbmR3NzY0ZGRkc3h6M2FvdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/AhjXalGPAfJg4/giphy.gif" alt="코딩" class="inline-char-gif"></div>
+                    <div class="extended-text">
+                        <p>안녕하세요! 견고한 백엔드를 꿈꾸는 <strong>김강민</strong>입니다. 처음에는 INFJ 특유의 수줍음이 있을 수 있지만, 시간이 지날수록 듬직하고 친근하게 팀에 녹아듭니다.</p>
+                    </div>
+                </div>
+                <!-- mbti -->
+                <div id="tab-mbti" class="console-content">
+                    <div class="console-code-line"><span class="line-num">01</span><span class="line-text"><span class="accent-text">class</span> INFJ_Explorer <span class="accent-text">implements</span> JavaDeveloper { ... }</span></div>
+                    <div class="char-gif-container"><img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGtwcXM5ZWtmeHFocHVydzU0d3F3MGx0aHdrNzMwOGY3dzk1dmE5NSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/BQUITFiYVtNte/giphy.gif" alt="사색" class="inline-char-gif"></div>
+                    <div class="extended-text">
+                        <p>머릿속에서 아키텍처를 시뮬레이션하는 <strong>극 N</strong> 성향의 사색가입니다. 다각도로 예외 상황을 설계에 반영하는 강력한 무기가 됩니다.</p>
+                    </div>
+                </div>
+                <!-- interests -->
+                <div id="tab-hobbies" class="console-content">
+                    <div class="tag-cloud">
+                        <span class="tag">🎧 전장르 음악 감상</span>
+                        <span class="tag">🏃‍♂️ 오랜만의 러닝</span>
+                        <span class="tag">📚 자기계발 독서</span>
+                        <span class="tag">🍗 KFC 통다리 러버</span>
+                    </div>
+                    <div class="char-gif-container"><img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzZxNXI2YmEzOXBtNzJ3YTFwYjQ3MXdzbWt4cDF2OXkxcGdkbGJ1YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/JEhCPFfqi2Hy8/giphy.gif" alt="음악" class="inline-char-gif"></div>
+                    <div class="extended-text">
+                        <p>공부가 막힐 땐 트랙 위 러닝처럼 몸을 움직이거나 다양한 음악을 들으며 에너지를 순환시킵니다. 금방 자극을 받고 일어서는 회복 탄력성을 지녔습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="guestbook-section container">
+        <span class="section-label">SHARED MOTTO</span>
+        <h2 class="section-headline">마음에 새긴 로그 시스템</h2>
+        <div class="guestbook-box">
+            <div class="guestbook-header"><span class="mono">TERMINAL_QUOTE_BOOK.sh</span><span class="status-indicator">● ACTIVE</span></div>
+            <div class="guestbook-body">
+                <div class="message-item"><span class="user mono">[제갈량]</span><span class="msg">盡人事待天命 : 최선을 다한 뒤 하늘의 뜻을 기다려라</span></div>
+                <div class="message-item"><span class="user mono">[제프 베조스]</span><span class="msg">묵묵히 쌓아 올린 시간은 배신하지 않는다</span></div>
+                <div class="message-item"><span class="user mono">[일론 머스크]</span><span class="msg">아침에 일어나고 싶고, 삶을 살고 싶은 이유가 있어야 한다</span></div>
+                <div class="input-line mono"><span class="prompt">quotebook@kangmin:~$</span><span class="cursor-text">내가 써내려갈 문장은...</span></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026. SSAFY 16th - SEOUL 11th Dev Kim Kang-min.</p>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
