@@ -34,8 +34,67 @@
         <h2 class="section-headline">강민과의 동반 취뽀 퀘스트 캠페인</h2>
         
         <!-- 💡 게이미피케이션 보드판이 위치할 구역 -->
+        <!-- 💡 게이미피케이션 보드판 실구현 코드 -->
         <div id="quest-app-root">
-            <p style="color: var(--text-sub);">포인트 시스템, SSAFY 수료 및 취뽀 진행률 바, 김강민 탐구 퀴즈 및 뱃지 획득 인터랙션이 이곳에 탑재됩니다.</p>
+            
+            <!-- 상단 스탯 대시보드 및 수료 진행률 바 -->
+            <div class="quest-dashboard">
+                <div class="stat-card">
+                    <span class="stat-label">EXP POINT</span>
+                    <span class="stat-value" id="current-points">000</span>
+                </div>
+                <div class="stat-card">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                        <span class="stat-label">취뽀 여정 진행률</span>
+                        <span class="mono accent-text" id="progress-text" style="font-size: 0.9rem; font-weight: bold;">0%</span>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-track">
+                            <div class="progress-bar" id="quest-progress"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 대화형 퀴즈 모듈 구역 -->
+            <div class="quiz-section">
+                <span class="section-label" style="margin-bottom: 8px;">INTERACTIVE QUIZ</span>
+                <div class="quiz-container" id="quiz-box">
+                    <!-- JS에 의해 동적으로 퀴즈 콘텐츠가 렌더링됩니다 -->
+                </div>
+            </div>
+
+            <!-- 뱃지 컬렉션 전시관 -->
+            <div class="badge-section">
+                <span class="section-label" style="margin-bottom: 20px;">BADGE COLLECTION</span>
+                <div class="badge-grid">
+                    <!-- 뱃지 1 -->
+                    <div class="badge-card" id="badge-1">
+                        <span class="badge-icon">🧙‍♂️</span>
+                        <div class="badge-title">사색의 시작</div>
+                        <div class="badge-desc">첫 번째 퀴즈 관문을 무사히 통과함</div>
+                    </div>
+                    <!-- 뱃지 2 -->
+                    <div class="badge-card" id="badge-2">
+                        <span class="badge-icon">🏃‍♂️</span>
+                        <div class="badge-title">지치지 않는 러너</div>
+                        <div class="badge-desc">강민의 회복 탄력성 비밀을 풀어냄</div>
+                    </div>
+                    <!-- 뱃지 3 -->
+                    <div class="badge-card" id="badge-3">
+                        <span class="badge-icon">☕</span>
+                        <div class="badge-title">백엔드 마스터</div>
+                        <div class="badge-desc">모든 탐구 퀴즈를 완벽하게 정복함</div>
+                    </div>
+                    <!-- 뱃지 4 -->
+                    <div class="badge-card" id="badge-4">
+                        <span class="badge-icon">🌴</span>
+                        <div class="badge-title">오아시스 조기 취뽀</div>
+                        <div class="badge-desc">동기들과 조기 중도퇴소 엔딩 확정</div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
