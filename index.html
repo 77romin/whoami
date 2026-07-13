@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFJ Back-End Developer | 김강민</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;700;800&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 동적 모래/물방울 입자가 그려질 풀스크린 캔버스 -->
+    <canvas id="ambient-particles"></canvas>
+    
+    <!-- 사막 언덕 배경 레이어 (스크롤에 따라 고정/이동) -->
+    <div class="desert-hills-container">
+        <!-- 첫 번째 부드러운 모래 언덕 곡선 -->
+        <svg class="hill hill-1" viewBox="0 0 1440 320" preserveAspectRatio="none">
+            <path d="M0,160 C320,260 640,60 960,190 C1280,320 1360,220 1440,240 L1440,320 L0,320 Z"></path>
+        </svg>
+        <!-- 두 번째 겹쳐진 모래 언덕 곡선 -->
+        <svg class="hill hill-2" viewBox="0 0 1440 320" preserveAspectRatio="none">
+            <path d="M0,96 C480,220 720,32 1200,160 C1320,200 1380,180 1440,128 L1440,320 L0,320 Z"></path>
+        </svg>
+    </div>
+
+    <!-- 기존 header 시작... -->
+    <header>
+        <div class="container header-inner">
+            <div>
+                <span class="status-dot"></span>
+                <span>STATUS: <span class="accent-text">ONLINE</span></span>
+            </div>
+            <div class="mono" style="font-size: 0.8rem;">
+                ENV: SSAFY_16th_SEOUL_11th
+            </div>
+        </div>
+    </header>
+
+    <section class="hero container">
+        <div class="hero-wrapper">
+            <span class="hero-tag mono">system.config.init();</span>
+            <h1>
+                <span class="highlight">"신기루에 흔들리지 않고,<br>함께 오아시스를 찾아나서요"</span>
+            </h1>
+            <p class="lead">
+                무한한 사색을 견고한 로직으로 구체화하고 싶은 김강민입니다.<br>
+                SSAFY 서울 11반 동기들과 함께 더 높은 곳을 향해 몰입하고,<br>
+                서로의 든든한 러닝메이트가 되어가는 여정을 기록하고 싶습니다.
+            </p>
+            <div class="stack-badges mono">
+                <span class="badge"><strong>INFJ🧙‍♂️</strong></span>
+                <span class="badge">Brainstrom🧠 </span>
+                <span class="badge">Runner🏃</span>
+                <span class="badge">Music🎧 W/ <strong>ADHD</strong></span>
+            </div>
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <span class="mono">SCROLL TO DISCOVER</span>
+            </div>
+        </div>
+    </section>
+    <div class="char-gif-container">
+        <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGVkb3d5azBzMm8wdDM1ZmNlYjVtYXNudjNlaXF3Z3VtamZjZXZmdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3ohs83rP7A7cq7hXkk/giphy.gif" alt="사막 캐릭터" class="inline-char-gif">
+    </div>
+
+    <section class="console-section container">
+        <div class="console-box">
+            <div class="console-header">
+                <div class="console-dots">
+                    <div class="console-dot" style="background-color: #ff5f56;"></div>
+                    <div class="console-dot" style="background-color: #ffbd2e;"></div>
+                    <div class="console-dot" style="background-color: #27c93f;"></div>
+                </div>
+                <div class="console-title">PROFILE.json</div>
+                <div class="console-dots" style="opacity: 0;">
+                    <div class="console-dot"></div><div class="console-dot"></div><div class="console-dot"></div>
+                </div>
+            </div>
+
+            <div class="console-nav">
+                <div class="console-tab active" onclick="switchTab('whoami')">whoami</div>
+                <div class="console-tab" onclick="switchTab('mbti')">mbti_details</div>
+                <div class="console-tab" onclick="switchTab('hobbies')">interests</div>
+            </div>
+
+            <div class="console-body">
+                <div id="tab-whoami" class="console-content active">
+                    <div class="console-code-line"><span class="line-num">01</span><span class="line-text"><span class="accent-text">const</span> dev = {</span></div>
+                    <div class="console-code-line"><span class="line-num">02</span><span class="line-text">&nbsp;&nbsp;name: <span style="color: #e6c07b;">"김강민"</span>,</span></div>
+                    <div class="console-code-line"><span class="line-num">03</span><span class="line-text">&nbsp;&nbsp;character: <span style="color: #e6c07b;">"겉은 수줍지만 속은 단단함"</span>,</span></div>
+                    <div class="console-code-line"><span class="line-num">04</span><span class="line-text">&nbsp;&nbsp;goal: <span style="color: #e6c07b;">"동기들과 동반 취뽀 및 조기 중도퇴소"</span>,</span></div>
+                    <div class="console-code-line"><span class="line-num">05</span><span class="line-text">&nbsp;&nbsp;motto: <span style="color: #e6c07b;">"시작한 열정 그대로, 초지일관"</span></span></div>
+                    <div class="console-code-line"><span class="line-num">06</span><span class="line-text">};</span></div>
+                    <div class="char-gif-container">
+                        <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExYnlqOGJiNTB3bGlqcXIzMHAyNmZ1djJxbmR3NzY0ZGRkc3h6M2FvdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/AhjXalGPAfJg4/giphy.gif" alt="코딩 캐릭터" class="inline-char-gif">
+                    </div>
+                    <div class="extended-text">
+                        <p>안녕하세요! 견고하고 묵직한 백엔드 아키텍처를 꿈꾸는 <strong>김강민</strong>입니다. 
+                            <br>처음 마주할 때는 INFJ 특유의 수줍음과 낯가림이 살짝 묻어날 수 있지만, 이는 주변을 조용히 살피고 상대를 배려하기 위한 준비 기간일 뿐입니다. 
+                            <br>시간이 지날수록 듬직하고 단단한 매력으로 팀에 자연스럽게 녹아듭니다.</p>
+                        <p>혼자 빠르게 앞서나가는 코더가 되기보다는, 스터디와 프로젝트 속에서 소통의 벽을 허물고 <strong>'두루두루 친근하게'</strong> 동기들의 이야기를 경청하는 동료가 되고 싶습니다.
+                            <br>SSAFY 과정 동안 지치지 않고 끝까지 함께 완주할 페이스메이커로 기억되고 싶습니다.</p>
+                    </div>
+                </div>
+
+                <div id="tab-mbti" class="console-content">
+                    <div class="console-code-line"><span class="line-num">01</span><span class="line-text"><span class="accent-text">class</span> INFJ_Explorer <span class="accent-text">implements</span> JavaDeveloper {</span></div>
+                    <div class="console-code-line"><span class="line-num">02</span><span class="line-text">&nbsp;&nbsp;<span class="accent-text">private final</span> String mindType = <span style="color: #e6c07b;">"Extreme_N"</span>;</span></div>
+                    <div class="console-code-line"><span class="line-num">03</span><span class="line-text">&nbsp;&nbsp;<span class="accent-text">private</span> boolean knockTheDoor = <span class="accent-text">false</span>;</span></div>
+                    <div class="console-code-line"><span class="line-num">04</span>  <span class="line-text"></span></div>
+                    <div class="console-code-line"><span class="line-num">05</span><span class="line-text">&nbsp;&nbsp;<span class="accent-text">public</span> void deepThinkingInShower() {</span></div>
+                    <div class="console-code-line"><span class="line-num">06</span><span class="line-text">&nbsp;&nbsp;&nbsp;&nbsp;<span class="accent-text">while</span>(!knockTheDoor) {</span></div>
+                    <div class="console-code-line"><span class="line-num">07</span><span class="line-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span style="color: #e6c07b;">"무한한 우주 확장 및 아키텍처 시뮬레이션 중..."</span>);</span></div>
+                    <div class="console-code-line"><span class="line-num">08</span><span class="line-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="accent-text">if</span>(checkReality()) <span class="accent-text">break</span>;</span></div>
+                    <div class="console-code-line"><span class="line-num">09</span><span class="line-text">&nbsp;&nbsp;&nbsp;&nbsp;}</span></div>
+                    <div class="console-code-line"><span class="line-num">10</span><span class="line-text">&nbsp;&nbsp;}</span></div>
+                    <div class="console-code-line"><span class="line-num">11</span><span class="line-text">}</span></div>
+                    <div class="char-gif-container">
+                        <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGtwcXM5ZWtmeHFocHVydzU0d3F3MGx0aHdrNzMwOGY3dzk1dmE5NSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/BQUITFiYVtNte/giphy.gif" alt="샤워 캐릭터" class="inline-char-gif">
+                    </div>
+                    <div class="extended-text">
+                        <p>샤워기 물줄기 아래 서 있으면 머릿속에서 우주 끝까지 뻗어나가는 <strong>극 N</strong> 성향의 사색가입니다. 
+                            <br>누군가 문을 두드려 현실로 깨워주기 전까지 코딩 아키텍처와 로직의 흐름을 무한히 시뮬레이션하곤 합니다.</p>
+                        <p>이 상상력은 개발에서 강력한 무기가 됩니다. 
+                            <br>예외 상황을 다각도로 예측하고 코드의 구조적인 아름다움을 고민하는 바탕이 되기 때문입니다.
+                            <br>붕 뜰 수 있는 상상들을 프로그래밍의 명확하고 엄격한 규칙 위에 올려 단단한 현실의 결과물로 정제해 나가는 중입니다.</p>
+                    </div>
+                </div>
+
+                <div id="tab-hobbies" class="console-content">
+                    <p style="color: var(--text-sub); font-size: 0.95rem; margin-bottom: 20px;">
+                        정해진 카테고리에 얽매이지 않는 유연하고 넓은 스펙트럼의 일상 에너지원 로그입니다.
+                    </p>
+                    <div class="tag-cloud">
+                        <span class="tag">🎧 ADHD식 전장르 음악 감상</span>
+                        <span class="tag">🏃‍♂️ 지난주 오랜만에 재개한 런닝</span>
+                        <span class="tag">📚 동기부여용 자기계발 독서</span>
+                        <span class="tag">🧠 샤워실 속 아이디어 브레인스토밍</span>
+                        <span class="tag">🍗 KFC 오리지널 통다리 러버</span>
+                        <span class="tag">🍅 방울토마토 헤이터</span>
+                    </div>
+                    <div class="char-gif-container">
+                        <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzZxNXI2YmEzOXBtNzJ3YTFwYjQ3MXdzbWt4cDF2OXkxcGdkbGJ1YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/JEhCPFfqi2Hy8/giphy.gif" alt="잡학다식 캐릭터" class="inline-char-gif">
+                    </div>
+                    <div class="extended-text" style="margin-top: 24px;">
+                        <p>알고리즘이 뒤죽박죽 섞인 플레이리스트처럼 장르를 가리지 않는 <strong>잡학다식함</strong>이 특징입니다.
+                            <br>지루함을 쉽게 느끼는 성향을 역으로 이용해, 공부가 막힐 땐 장르가 완전히 다른 음악을 듣거나 그저께 오랜만에 뛰었던 트랙 위 러닝처럼 몸을 움직여 에너지를 강제 순환시킵니다.</p>
+                        <p>잠깐 게으름에 지는 날이 있더라도, 책장에서 꺼내 든 자기계발 서적 한 줄에 금방 자극을 받아 신발 끈을 다시 묶는 회복 탄력성을 가지고 있습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="timeline-section container">
+        <span class="section-label">02 / MILESTONE</span>
+        <h2 class="section-headline">초지일관의 성장 타임라인</h2>
+        
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <div class="timeline-meta mono">PHASE 01 // 사색의 시작</div>
+                <div class="timeline-content-box">
+                    <h3>Java Core 및 객체 지향의 본질 이해</h3>
+                    <p>단순한 문법 암기를 넘어 객체 지향 패러다임이 왜 등장했는지 깊게 고찰했습니다. 
+                        <br>극 N의 사색을 바탕으로 클래스 간의 관계와 캡슐화, 다형성의 깊은 개념을 추상화하며 단단한 기본기를 다진 시기입니다.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-meta mono">PHASE 02 // 알고리즘 몰입</div>
+                <div class="timeline-content-box">
+                    <h3>자료구조 정복 및 매일의 한 걸음</h3>
+                    <p>효율적인 코드 생산을 위해 자료구조와 정렬, 탐색 알고리즘을 반복 훈련하고 있습니다. 
+                        <br>해결되지 않는 버그 앞에서도 포기하지 않고 끝까지 문제를 추적하는 '초지일관'의 끈기를 코드 스니펫 위에 증명했습니다.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-meta mono">PHASE 03 // 시너지와 확장</div>
+                <div class="timeline-content-box">
+                    <h3>웹 아키텍처 학습 및 공동의 목표</h3>
+                    <p>Spring Boot 환경에서 데이터베이스를 연동하고 대규모 트래픽을 견디는 아키텍처 설계를 공부하고 싶습니다. 
+                        <br>SSAFY 동기 여러분과 함께 지식을 공유하고 피드백을 주고받으며, 집단 지성이 주는 강력한 협업 시너지를 경험하고 싶습니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section container">
+        <span class="section-label">03 / CORE MOTIVE</span>
+        <h2 class="section-headline">협업의 엔진이 될 3가지 기둥</h2>
+        <div class="grid-layout">
+            <div class="grid-card">
+                <span class="card-index">01.</span>
+                <h3>사색과 실행의 완벽한 밸런스</h3>
+                <p>끊임없이 고민하고 최상의 아키텍처를 시뮬레이션하되, 일단 방향성과 설계가 확정되면 망설임 없이 코드를 작성해 나갑니다. 무한한 아이디어를 현실적인 동작 코드로 정제하는 능력이 탁월합니다.</p>
+            </div>
+            <div class="grid-card">
+                <span class="card-index">02.</span>
+                <h3>단단함 속에 숨겨진 친근함</h3>
+                <p>묵직하게 자기 중심을 지키면서도 타인의 의견을 편견 없이 유연하게 수용합니다. 수줍은 미소 뒤에 숨은 부드러운 커뮤니케이션으로 팀 내 불협화음을 방지하고 끈끈한 유대감을 만들어냅니다.</p>
+            </div>
+            <div class="grid-card">
+                <span class="card-index">03.</span>
+                <h3>초지일관 변함없는 꾸준함</h3>
+                <p>첫 날 가졌던 뜨거운 열정과 에너지를 수료하는 마지막 날까지, 나아가 원하는 기업에 도달해 중도 퇴소하는 그 순간까지 흔들림 없이 유지합니다. 슬럼프를 스스로 제어할 줄 아는 강력한 동력을 지녔습니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="guestbook-section container">
+        <div class="guestbook-box">
+            <div class="guestbook-header">
+                <span class="mono">TERMINAL_QUOTE_BOOK.sh</span>
+                <span class="status-indicator">● ACTIVE</span>
+            </div>
+            <div class="guestbook-body">
+                <div class="message-item">
+                    <span class="user mono">[제갈량]</span>
+                    <span class="msg">盡人事待天命:사람으로서 자신이 할 수 있는 최선을 다한 뒤 하늘의 뜻을 기다려라</span>
+                </div>
+                <div class="message-item">
+                    <span class="user mono">[제프 베조스]</span>
+                    <span class="msg">묵묵히 쌓아 올린 시간은 배신하지 않는다</span>
+                </div>
+                <div class="message-item">
+                    <span class="user mono">[일론 머스크]</span>
+                    <span class="msg">아침에 일어나고 싶고, 삶을 살고 싶은 이유가 있어야 한다</span>
+                </div>
+                <div class="input-line mono">
+                    <span class="prompt">quotebook@kangmin:~$</span>
+                    <span class="cursor-text">내가 써내려갈 문장은...</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container cta-box">
+            <span class="section-label" style="display: inline-block; margin-bottom: 16px;">THE ENDPOINT</span>
+            <h2>"우리 모두 빨리 나갑시다!"</h2>
+            <p>
+                단순히 교육 과정을 무사히 마치는 수료증보다 값진 영광은,<br>
+                정말 가고 싶은 드림 컴퍼니로 빠르게 '조기 취업'하여 당당히 나가는 것입니다.<br>
+                그 최고의 엔딩을 맞이하는 순간까지, 멈추지 말고 함께 즐겁게 달려봅시다!
+            </p>
+            <button class="primary-btn" onclick="showToast()">
+               🤜💥 함께 취뽀하기 💥🤛
+            </button>
+        </div>
+    </section>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026. SSAFY 16th - SEOUL 11th Dev Kim Kang-min. Built cleanly with Raw HTML/CSS/JS.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
